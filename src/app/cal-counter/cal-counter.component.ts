@@ -20,4 +20,8 @@ export class CalCounterComponent implements OnInit {
   addItem(name:HTMLInputElement, cals:HTMLInputElement) {
     this.counter.addCalitem(new calorieItem(name.value, +cals.value))
   }
+
+  clearAllItems() {
+    this.counter.clearCalItems()
+  }
 }

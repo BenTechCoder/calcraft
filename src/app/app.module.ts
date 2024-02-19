@@ -12,11 +12,14 @@ import { MatInputModule } from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CalBannerComponent } from './cal-banner/cal-banner.component';
-import { CalCounterComponent } from './cal-counter/cal-counter.component';
 import { CounterService } from './counter.service';
+// import { CalCounterModule } from './cal-counter/cal-counter.module';
+import { CalCounterComponent } from './cal-counter/cal-counter.component';
+import { CalitemComponent } from './cal-counter/calitem/calitem.component';
+
 
 @NgModule({
-  declarations: [AppComponent, CalBannerComponent, CalCounterComponent],
+  declarations: [AppComponent, CalBannerComponent, CalCounterComponent, CalitemComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

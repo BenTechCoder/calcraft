@@ -10,13 +10,13 @@
   <button mat-fab color="accent" type="button" (click)="addItem(name, cal)">
     <mat-icon>addition</mat-icon>
   </button>
+  <button mat-raised-button (click)="clearAllItems()" type="button">
+    Clear All
+  </button>
 </form>
 
 <mat-list>
   @for(item of calItems; track item) {
-  <mat-list-item
-    ><span matListItemTitle>{{ item.name }}</span>
-    <span matListItemLine>{{ item.calories }} Cals</span></mat-list-item
-  >
+  <app-calitem [item]="item"></app-calitem>
   }
 </mat-list>

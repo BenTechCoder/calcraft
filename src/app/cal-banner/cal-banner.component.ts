@@ -10,7 +10,7 @@ export class CalBannerComponent implements OnInit {
   constructor(private counter: CounterService) {}
 
   total: number = this.counter.tallyCalories();
-  limit: number = 2100;
+  limit: number = this.counter.getCalorieLimit()
 
   ngOnInit() {
     this.counter.totalEmitter.subscribe((total) => {
