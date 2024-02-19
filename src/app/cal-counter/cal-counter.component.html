@@ -1,3 +1,22 @@
-@for(item of calItems; track item) {
-<p>{{ item.name }}</p>
-}
+<form>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" #name />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Calories</mat-label>
+    <input matInput type="number" #cal />
+  </mat-form-field>
+  <button mat-fab color="accent" type="button" (click)="addItem(name, cal)">
+    <mat-icon>addition</mat-icon>
+  </button>
+</form>
+
+<mat-list>
+  @for(item of calItems; track item) {
+  <mat-list-item
+    ><span matListItemTitle>{{ item.name }}</span>
+    <span matListItemLine>{{ item.calories }} Cals</span></mat-list-item
+  >
+  }
+</mat-list>
