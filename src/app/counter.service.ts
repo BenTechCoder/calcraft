@@ -48,6 +48,7 @@ export class CounterService {
   clearCalItems() {
     this.calItems.length = 0;
     this.calItemsEmitter.emit(this.calItems);
+    this.totalEmitter.emit(this.tallyCalories())
     this.localStorgeUpdate();
   }
 
