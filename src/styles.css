@@ -7,4 +7,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  max-width: 85rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em;
 }
+
