@@ -7,10 +7,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { CalBannerComponent } from './cal-banner/cal-banner.component';
+import { CalCounterComponent } from './cal-counter/cal-counter.component';
+import { CounterService } from './counter.service';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CalBannerComponent, CalCounterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,7 +27,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [CounterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
