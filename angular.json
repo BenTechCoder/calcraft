@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "CalCraft:build:production"
+              "buildTarget": "CalCraft:build:production"
             },
             "development": {
-              "browserTarget": "CalCraft:build:development"
+              "buildTarget": "CalCraft:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -70,7 +70,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "CalCraft:build"
+            "buildTarget": "CalCraft:build"
           }
         },
         "test": {

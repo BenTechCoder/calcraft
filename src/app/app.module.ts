@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { CalBannerComponent } from './cal-banner/cal-banner.component';
 import { CalCounterComponent } from './cal-counter/cal-counter.component';
 import { CounterService } from './counter.service';
-
 
 @NgModule({
   declarations: [AppComponent, CalBannerComponent, CalCounterComponent],
@@ -19,6 +22,10 @@ import { CounterService } from './counter.service';
     AppRoutingModule,
     MatButtonModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatIconModule,
+    MatInputModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
