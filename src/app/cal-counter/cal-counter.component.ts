@@ -17,6 +17,8 @@ export class CalCounterComponent implements OnInit {
    })
   }
 
+  // TODO Add code to reset values of Inputs
+  // TODO: check if name input is not blank if so reject the input if not proceed as normal
   addItem(name:HTMLInputElement, cals:HTMLInputElement) {
     this.counter.addCalitem(new calorieItem(name.value, +cals.value))
   }
