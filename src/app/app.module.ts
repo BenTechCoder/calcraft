@@ -11,6 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CalBannerComponent } from './cal-banner/cal-banner.component';
 import { CounterService } from './counter.service';
 // import { CalCounterModule } from './cal-counter/cal-counter.module';
@@ -24,6 +26,8 @@ import { CalitemComponent } from './cal-counter/calitem/calitem.component';
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatListModule,

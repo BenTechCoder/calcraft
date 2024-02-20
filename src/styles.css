@@ -13,3 +13,13 @@ body {
   padding: 2em;
 }
 
+.center {
+  box-sizing: content-box;
+  margin-inline: auto;
+  max-inline-size: 85ch;
+}
+
+.region {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}

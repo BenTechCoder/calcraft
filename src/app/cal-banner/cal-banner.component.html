@@ -1,1 +1,12 @@
-<p>{{ total }} / {{ limit }}</p>
+<div class="custom region">
+  <mat-progress-spinner
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+    [diameter]="140"
+    aria-label="Rating"
+    >Rating</mat-progress-spinner
+  >
+
+  <div class="overlay mat-headline-1">{{ total }} / {{ limit }}</div>
+</div>

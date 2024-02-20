@@ -1,22 +1,31 @@
-<form>
-  <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput type="text" #name />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Calories</mat-label>
-    <input matInput type="number" #cal />
-  </mat-form-field>
-  <button mat-fab color="accent" type="button" (click)="addItem(name, cal)">
-    <mat-icon>addition</mat-icon>
-  </button>
-  <button mat-raised-button (click)="clearAllItems()" type="button">
-    Clear All
-  </button>
-</form>
+<section class="center region">
+  <form class="cluster">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" #nameInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Calories</mat-label>
+      <input matInput type="number" #calorieInput />
+    </mat-form-field>
+    <button
+      mat-fab
+      color="accent"
+      type="button"
+      (click)="addItem(nameInput, calorieInput)"
+    >
+      <mat-icon>addition</mat-icon>
+    </button>
+    <button mat-raised-button (click)="clearAllItems()" type="button">
+      <strong>Clear All</strong>
+    </button>
+  </form>
 
-<mat-list>
-  @for(item of calItems; track item) {
-  <app-calitem [item]="item"></app-calitem>
-  }
-</mat-list>
+ <div class="region">
+    <mat-list>
+      @for(item of calItems; track item) {
+      <app-calitem [item]="item"></app-calitem>
+      }
+    </mat-list>
+ </div>
+</section>

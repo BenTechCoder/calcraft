@@ -61,7 +61,7 @@ export class CounterService {
   }
 
   getCalorieLimit():number {
-    // get input behind settings dialog for calorie limit with default being blank
+    // TODO get input behind settings dialog for calorie limit, store it in localstorage, with default being blank
     return 2100
   }
 }
