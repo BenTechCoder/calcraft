@@ -1,18 +1,19 @@
-
 <div mat-dialog-content>
-    <form class="cluster">
-        <mat-form-field>
-          <mat-label color="accent">Calorie Limit</mat-label>
-          <input matInput type="number" #calLimitInput />
-        </mat-form-field>
-    </form>
+  <form class="cluster">
+    <mat-form-field>
+      <mat-label color="accent">Calorie Limit</mat-label>
+      <input matInput type="number" #calLimitInput />
+    </mat-form-field>
+  </form>
 </div>
 
 <div mat-dialog-actions>
-  <button mat-raised-button (click)="saveCalorieLimit(+calLimitInput.value)" color="accent">
+  <button
+    mat-raised-button
+    (click)="saveCalorieLimit(+calLimitInput.value)"
+    color="accent"
+  >
     Save
   </button>
-  <button mat-raised-button (click)="dialogRef.close()">
-    Cancel
-  </button>
+  <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
 </div>

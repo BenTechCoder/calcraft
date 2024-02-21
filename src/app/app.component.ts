@@ -9,21 +9,17 @@ import { CounterService } from './counter.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  selectedEmoji: string = "";
+  selectedEmoji: string = '';
   title = 'CalCraft';
-  constructor(public dialog: MatDialog, counter:CounterService) {}
+  constructor(public dialog: MatDialog, counter: CounterService) {}
   openDialog() {
     let dialog = this.dialog.open(SettingsDialogComponent);
-dialog.afterClosed()
-  .subscribe(selection => {
-    if (selection) {
-      this.selectedEmoji = selection;
-    } else {
-      // User clicked 'Cancel' or clicked outside the dialog
-    }
-  });
-    
+    dialog.afterClosed().subscribe((selection) => {
+      if (selection) {
+        this.selectedEmoji = selection;
+      } else {
+        // User clicked 'Cancel' or clicked outside the dialog
+      }
+    });
+  }
 }
-}
-
-

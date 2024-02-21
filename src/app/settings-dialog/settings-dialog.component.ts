@@ -8,11 +8,12 @@ import { CounterService } from '../counter.service';
   styleUrl: './settings-dialog.component.css',
 })
 export class SettingsDialogComponent {
-  emojis = ['🐼', '💪', '🐷', '🤖', '👽', '🐥'];
-  choosenEmoji: string = '';
-  constructor(public dialogRef: MatDialogRef<SettingsDialogComponent>, public counter:CounterService) {}
-  saveCalorieLimit(limit:number) {
-    this.dialogRef.close(this.choosenEmoji);
-    this.counter.setCalorieLimit(limit)
+  constructor(
+    public dialogRef: MatDialogRef<SettingsDialogComponent>,
+    public counter: CounterService
+  ) {}
+  saveCalorieLimit(limit: number) {
+    this.dialogRef.close();
+    this.counter.setCalorieLimit(limit);
   }
 }

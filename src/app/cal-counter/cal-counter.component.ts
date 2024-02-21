@@ -12,7 +12,7 @@ export class CalCounterComponent implements OnInit {
   constructor(private counter: CounterService, private snackBar: MatSnackBar) {}
 
   calItems: calorieItem[] = this.counter.getCalItems();
-  
+
   @ViewChild('nameInput', { static: false }) nameInputRef: ElementRef =
     {} as ElementRef;
   @ViewChild('calorieInput', { static: false }) calorieInputRef: ElementRef =

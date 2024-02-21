@@ -7,13 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { CalBannerComponent } from './cal-banner/cal-banner.component';
 import { CounterService } from './counter.service';
@@ -22,9 +22,14 @@ import { CalCounterComponent } from './cal-counter/cal-counter.component';
 import { CalitemComponent } from './cal-counter/calitem/calitem.component';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
 
-
 @NgModule({
-  declarations: [AppComponent, CalBannerComponent, CalCounterComponent, CalitemComponent, SettingsDialogComponent],
+  declarations: [
+    AppComponent,
+    CalBannerComponent,
+    CalCounterComponent,
+    CalitemComponent,
+    SettingsDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
