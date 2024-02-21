@@ -21,7 +21,7 @@ export class CounterService {
   limitEmitter = new EventEmitter<number>();
   calItemsEmitter = new EventEmitter<calorieItem[]>();
 
-  private calItems: calorieItem[] = [new calorieItem('pizza', 90)];
+  private calItems: calorieItem[] = [];
   private calLimit: number = 0;
 
   localStorgeUpdate() {
