@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
+import { CounterService } from './counter.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  selectedEmoji: string = "";
   title = 'CalCraft';
+  constructor(public dialog: MatDialog, counter:CounterService) {}
+  openDialog() {
+    let dialog = this.dialog.open(SettingsDialogComponent);
+dialog.afterClosed()
+  .subscribe(selection => {
+    if (selection) {
+      this.selectedEmoji = selection;
+    } else {
+      // User clicked 'Cancel' or clicked outside the dialog
+    }
+  });
+    
 }
+}
+
+

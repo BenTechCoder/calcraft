@@ -5,22 +5,30 @@ import { calorieItem } from './calorieItem.model';
 })
 export class CounterService {
   constructor() {
-    if (localStorage.getItem('calItems') === null) {
+    if (
+      localStorage.getItem('calItems') === null &&
+      localStorage.getItem('calLimit') === null
+    ) {
       this.localStorgeUpdate();
     } else {
       this.calItems = JSON.parse(localStorage.getItem('calItems') || '{}');
+      this.calLimit = JSON.parse(localStorage.getItem('calLimit') || '{}');
       console.log('current app going strong');
     }
   }
 
   totalEmitter = new EventEmitter<number>();
+  limitEmitter = new EventEmitter<number>();
   calItemsEmitter = new EventEmitter<calorieItem[]>();
 
-  private calItems: calorieItem[] = [];
+  private calItems: calorieItem[] = [new calorieItem('pizza', 90)];
+  private calLimit: number = 0;
 
   localStorgeUpdate() {
-    let storage = JSON.stringify(this.calItems);
-    localStorage.setItem('calItems', storage);
+    let calItemsstorage = JSON.stringify(this.calItems);
+    let calLimitStorage = JSON.stringify(this.calLimit);
+    localStorage.setItem('calItems', calItemsstorage);
+    localStorage.setItem('calLimit', calLimitStorage);
   }
 
   addCalitem(item: calorieItem) {
@@ -48,20 +56,23 @@ export class CounterService {
   clearCalItems() {
     this.calItems.length = 0;
     this.calItemsEmitter.emit(this.calItems);
-    this.totalEmitter.emit(this.tallyCalories())
+    this.totalEmitter.emit(this.tallyCalories());
     this.localStorgeUpdate();
   }
 
   tallyCalories() {
-    return this.calItems.reduce(
-      (partialSum, currentNumber): number =>
-        partialSum + currentNumber.calories,
-      0
-    );
+    return this.calItems.reduce((partialSum, currentNumber): number => {
+      return partialSum + currentNumber.calories;
+    }, 0);
   }
 
-  getCalorieLimit():number {
-    // TODO get input behind settings dialog for calorie limit, store it in localstorage, with default being blank
-    return 2100
+  getCalorieLimit(): number {
+    return this.calLimit;
+  }
+
+  setCalorieLimit(limit: number) {
+    this.calLimit = limit;
+    this.limitEmitter.emit(limit);
+    this.localStorgeUpdate();
   }
 }

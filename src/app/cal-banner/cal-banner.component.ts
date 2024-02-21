@@ -28,5 +28,8 @@ export class CalBannerComponent implements OnInit {
       this.total = total;
       this.getSpinnerValue();
     });
+    this.counter.limitEmitter.subscribe(() => {
+      this.limit = this.counter.getCalorieLimit()
+    })
   }
 }
