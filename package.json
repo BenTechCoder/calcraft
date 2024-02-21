@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "start-pwa": "ng build && http-server -p 8080 -c-1 dist/CalCraft",
     "test": "ng test"
   },
   "private": true,
