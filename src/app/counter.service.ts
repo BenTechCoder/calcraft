@@ -73,7 +73,7 @@ export class CounterService {
   setCalorieLimit(limit: number) {
     this.calLimit = limit;
     this.limitEmitter.emit(limit);
-    this.totalEmitter.emit(this.tallyCalories())
+    this.totalEmitter.emit(this.tallyCalories());
     this.localStorgeUpdate();
   }
 }
