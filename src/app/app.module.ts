@@ -21,6 +21,7 @@ import { CounterService } from './counter.service';
 import { CalCounterComponent } from './cal-counter/cal-counter.component';
 import { CalitemComponent } from './cal-counter/calitem/calitem.component';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
+import { CalItemEditComponent } from './cal-counter/cal-item-edit/cal-item-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
     CalCounterComponent,
     CalitemComponent,
     SettingsDialogComponent,
+    CalItemEditComponent,
   ],
   imports: [
     BrowserModule,

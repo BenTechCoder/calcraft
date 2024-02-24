@@ -14,12 +14,5 @@ export class AppComponent {
   constructor(public dialog: MatDialog, counter: CounterService) {}
   openDialog() {
     let dialog = this.dialog.open(SettingsDialogComponent);
-    dialog.afterClosed().subscribe((selection) => {
-      if (selection) {
-        this.selectedEmoji = selection;
-      } else {
-        // User clicked 'Cancel' or clicked outside the dialog
-      }
-    });
   }
 }
