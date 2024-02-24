@@ -27,7 +27,7 @@ export class CalCounterComponent implements OnInit {
   addItem(name: HTMLInputElement, cals: HTMLInputElement) {
     if (name.value === '') {
       this.snackBar.open(
-        'Error saving calorie item. Please try again.',
+        'Please enter data before saving calorie item. Please try again.',
         'Dismiss',
         { duration: 2000 }
       );

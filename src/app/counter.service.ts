@@ -49,6 +49,16 @@ export class CounterService {
     this.localStorgeUpdate();
   }
 
+  editCalItem(item: calorieItem, updatedName: string, updatedCalories: number) {
+    const id: string = item.id;
+    const index = this.calItems.findIndex((index) => index.id == item.id);
+    const itemToUpdate = this.calItems[index];
+    itemToUpdate.name = updatedName;
+    itemToUpdate.calories = updatedCalories;
+    this.localStorgeUpdate();
+    this.totalEmitter.emit(this.tallyCalories());
+  }
+
   getCalItems() {
     return this.calItems.slice();
   }
@@ -73,7 +83,7 @@ export class CounterService {
   setCalorieLimit(limit: number) {
     this.calLimit = limit;
     this.limitEmitter.emit(limit);
-    this.totalEmitter.emit(this.tallyCalories())
+    this.totalEmitter.emit(this.tallyCalories());
     this.localStorgeUpdate();
   }
 }
