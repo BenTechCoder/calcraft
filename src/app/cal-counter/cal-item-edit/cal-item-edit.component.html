@@ -1,0 +1,36 @@
+<div mat-dialog-content>
+  <form class="cluster">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" #nameEditInput [value]="calItem.name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Calories</mat-label>
+      <input
+        matInput
+        type="number"
+        #calorieEditInput
+        [value]="calItem.calories"
+      />
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    (click)="saveEdit(nameEditInput.value, +calorieEditInput.value)"
+  >
+    Save
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    type="button"
+    (click)="dialogRef.close()"
+  >
+    Cancel
+  </button>
+</div>
