@@ -17,6 +17,8 @@ export class CounterService {
     }
   }
 
+  // TODO refactor eventEmitters to RXJS subjects
+
   totalEmitter = new EventEmitter<number>();
   limitEmitter = new EventEmitter<number>();
   calItemsEmitter = new EventEmitter<calorieItem[]>();
