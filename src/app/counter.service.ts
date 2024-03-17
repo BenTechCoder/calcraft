@@ -18,6 +18,9 @@ export class CounterService {
   }
 
   // TODO refactor eventEmitters to RXJS subjects
+  // TODO: Add protien counter feature
+  // TODO: Refactor form to ANgular forms (either template or reactive)
+  // TODO: look into backgroundSync with NG-PWA module
 
   totalEmitter = new EventEmitter<number>();
   limitEmitter = new EventEmitter<number>();
