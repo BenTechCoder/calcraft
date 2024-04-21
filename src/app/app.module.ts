@@ -1,5 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -35,6 +36,7 @@ import { CalItemEditComponent } from './cal-counter/cal-item-edit/cal-item-edit.
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
