@@ -11,6 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CalCounterComponent implements OnInit {
   constructor(private counter: CounterService, private snackBar: MatSnackBar) {}
 
+  proteinActivated: boolean = false;
   calItems: calorieItem[] = this.counter.getCalItems();
   calorieForm!: FormGroup;
 
@@ -21,10 +22,11 @@ export class CalCounterComponent implements OnInit {
     this.calorieForm = new FormGroup({
       name: new FormControl('', Validators.required),
       calories: new FormControl('', Validators.required),
+      protein: new FormControl(0),
     });
   }
 
-  addItem(name: string, cals: number) {
+  addItem(name: string, cals: number, protein:number) {
     if (name === '') {
       this.snackBar.open(
         'Please enter data before saving calorie item. Please try again.',
@@ -32,7 +34,7 @@ export class CalCounterComponent implements OnInit {
         { duration: 2000 }
       );
     } else {
-      this.counter.addCalitem(new calorieItem(name, +cals));
+      this.counter.addCalitem(new calorieItem(name, +cals, protein));
       this.calorieForm.reset();
     }
   }
@@ -45,7 +47,8 @@ export class CalCounterComponent implements OnInit {
     console.log(this.calorieForm.value);
     this.addItem(
       this.calorieForm.value['name'],
-      this.calorieForm.value['calories']
+      this.calorieForm.value['calories'],
+      this.calorieForm.value['protein']
     );
   }
 }

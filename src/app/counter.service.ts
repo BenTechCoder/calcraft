@@ -16,10 +16,9 @@ export class CounterService {
       console.log('current app going strong');
     }
   }
-
+  // TODO: Add protein counter feature - added to form and data structure, now to make it optional and hidden by defualt
   // TODO refactor eventEmitters to RXJS subjects
-  // TODO: Add protien counter feature
-  // TODO: Refactor form to ANgular forms (either template or reactive)
+  // TODO: look into undo feature
   // TODO: look into backgroundSync with NG-PWA module
 
   totalEmitter = new EventEmitter<number>();

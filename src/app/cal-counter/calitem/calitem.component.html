@@ -1,6 +1,9 @@
 <mat-list-item
   ><span matListItemTitle>{{ item.name }}</span>
   <span matListItemLine>{{ item.calories }} Cals</span>
+  @if (item.protein) {
+  <span matListItemLine>{{ item.protein }}g Protein</span>
+  }
   <button mat-icon-button matListItemIcon (click)="onDelete(item)">
     <mat-icon>delete</mat-icon>
   </button>
