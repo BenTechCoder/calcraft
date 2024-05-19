@@ -17,6 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { CalBannerComponent } from './cal-banner/cal-banner.component';
 import { CounterService } from './counter.service';
@@ -50,6 +51,7 @@ import { CalItemEditComponent } from './cal-counter/cal-item-edit/cal-item-edit.
     MatListModule,
     MatIconModule,
     MatInputModule,
+    MatProgressBarModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
