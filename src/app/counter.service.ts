@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { calorieItem } from './calorieItem.model';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -20,10 +21,11 @@ export class CounterService {
   // TODO refactor eventEmitters to RXJS subjects
   // TODO: look into undo feature
   // TODO: look into backgroundSync with NG-PWA module
+  // TODO: uSE ANGULAR ANIMATIONS to add movement to everything
 
-  totalEmitter = new EventEmitter<number>();
-  limitEmitter = new EventEmitter<number>();
-  calItemsEmitter = new EventEmitter<calorieItem[]>();
+  totalEmitter = new Subject<number>();
+  limitEmitter = new Subject<number>();
+  calItemsEmitter = new Subject<calorieItem[]>();
 
   private calItems: calorieItem[] = [];
   private calLimit: number = 0;
@@ -37,8 +39,8 @@ export class CounterService {
 
   addCalitem(item: calorieItem) {
     this.calItems.push(item);
-    this.calItemsEmitter.emit(this.calItems);
-    this.totalEmitter.emit(this.tallyCalories());
+    this.calItemsEmitter.next(this.calItems);
+    this.totalEmitter.next(this.tallyCalories());
     this.localStorgeUpdate();
   }
 
@@ -47,8 +49,8 @@ export class CounterService {
       return item2 !== item;
     });
     this.calItems = filter;
-    this.totalEmitter.emit(this.tallyCalories());
-    this.calItemsEmitter.emit(this.calItems);
+    this.totalEmitter.next(this.tallyCalories());
+    this.calItemsEmitter.next(this.calItems);
     console.log(filter);
     this.localStorgeUpdate();
   }
@@ -60,7 +62,7 @@ export class CounterService {
     itemToUpdate.name = updatedName;
     itemToUpdate.calories = updatedCalories;
     this.localStorgeUpdate();
-    this.totalEmitter.emit(this.tallyCalories());
+    this.totalEmitter.next(this.tallyCalories());
   }
 
   getCalItems() {
@@ -69,8 +71,8 @@ export class CounterService {
 
   clearCalItems() {
     this.calItems.length = 0;
-    this.calItemsEmitter.emit(this.calItems);
-    this.totalEmitter.emit(this.tallyCalories());
+    this.calItemsEmitter.next(this.calItems);
+    this.totalEmitter.next(this.tallyCalories());
     this.localStorgeUpdate();
   }
 
@@ -86,8 +88,8 @@ export class CounterService {
 
   setCalorieLimit(limit: number) {
     this.calLimit = limit;
-    this.limitEmitter.emit(limit);
-    this.totalEmitter.emit(this.tallyCalories());
+    this.limitEmitter.next(limit);
+    this.totalEmitter.next(this.tallyCalories());
     this.localStorgeUpdate();
   }
 }
