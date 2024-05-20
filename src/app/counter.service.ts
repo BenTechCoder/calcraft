@@ -17,11 +17,6 @@ export class CounterService {
       console.log('current app going strong');
     }
   }
-  // TODO: Add protein counter feature - added to form and data structure, now to make it optional and hidden by defualt
-  // TODO refactor eventEmitters to RXJS subjects
-  // TODO: look into undo feature
-  // TODO: look into backgroundSync with NG-PWA module
-  // TODO: uSE ANGULAR ANIMATIONS to add movement to everything
 
   totalEmitter = new Subject<number>();
   limitEmitter = new Subject<number>();
@@ -81,6 +76,17 @@ export class CounterService {
       return partialSum + currentNumber.calories;
     }, 0);
   }
+
+  tallyProtein() {
+    return this.calItems.reduce((partialSum, currentNumber): number => {
+      if(currentNumber.protein) {
+        return partialSum + currentNumber.protein;
+      } else {
+        return 0
+      }
+    }, 0);
+  }
+
 
   getCalorieLimit(): number {
     return this.calLimit;

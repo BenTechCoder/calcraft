@@ -6,3 +6,9 @@
     position: absolute;
     text-align: center;
 }
+
+mat-progress-bar {
+    --mdc-linear-progress-active-indicator-height: 2rem;
+    --mdc-linear-progress-track-height: 2rem;
+    --region-space-bottom: 0;
+}

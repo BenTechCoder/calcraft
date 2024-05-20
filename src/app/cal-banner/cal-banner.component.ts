@@ -13,23 +13,30 @@ export class CalBannerComponent implements OnInit {
 
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'determinate';
-  value = 0;
+  calorieSpinnerValue = 0;
+  protienProgressBarValue = 0;
 
-  total: number = this.counter.tallyCalories();
-  limit: number = this.counter.getCalorieLimit();
+  calorieTotal: number = this.counter.tallyCalories();
+  calorieLimit: number = this.counter.getCalorieLimit();
+  proteinTotal: number = this.counter.tallyProtein()
+  proteinLimit:number = 129;
 
-  getSpinnerValue() {
-    this.value = (this.total / this.limit) * 100;
+  getPercentageValue(total:number, limit:number) {
+    return (total / limit) * 100;
   }
 
   ngOnInit() {
-    this.getSpinnerValue();
+    this.calorieSpinnerValue = this.getPercentageValue(this.calorieTotal, this.calorieLimit);
+    this.protienProgressBarValue = this.getPercentageValue(this.proteinTotal, this.proteinLimit)
     this.counter.totalEmitter.subscribe((total) => {
-      this.total = total;
-      this.getSpinnerValue();
+      this.calorieTotal = total;
+      this.calorieSpinnerValue = this.getPercentageValue(this.calorieTotal, this.calorieLimit);
+      this.proteinTotal = this.counter.tallyProtein()
+      this.protienProgressBarValue = this.getPercentageValue(this.proteinTotal, this.proteinLimit)
     });
+
     this.counter.limitEmitter.subscribe(() => {
-      this.limit = this.counter.getCalorieLimit();
+      this.calorieLimit = this.counter.getCalorieLimit();
     });
   }
 }

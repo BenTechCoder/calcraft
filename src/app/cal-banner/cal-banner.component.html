@@ -2,15 +2,20 @@
   <mat-progress-spinner
     [color]="color"
     [mode]="mode"
-    [value]="value"
+    [value]="calorieSpinnerValue"
     [diameter]="140"
     aria-label="Rating"
     >Rating</mat-progress-spinner
   >
 
-  <div class="overlay mat-headline-1">{{ total }} / {{ limit }}</div>
+  <div class="overlay mat-headline-1">{{ calorieTotal }} / {{ calorieLimit }}</div>
 </div>
 
 <div>
-  <p class="center">Calories Remaining: {{ limit - total }}</p>
+  <p class="center">Calories Remaining: {{ calorieLimit - calorieTotal }}</p>
+</div>
+
+<div class="region custom center">
+  <mat-progress-bar mode="determinate" [value]="protienProgressBarValue"></mat-progress-bar>
+  <div class="overlay mat-headline-1">{{ proteinTotal }} / {{ proteinLimit }}</div>
 </div>
