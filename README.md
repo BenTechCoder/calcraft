@@ -1,5 +1,12 @@
 # CalCraft
 
+  // TODO: Add protein counter feature - added to form and data structure, now to make it optional and hidden by defualt
+  // TODO: Revamp calorie form to whole new page/modal to better accomodate new API features coming
+  // TODO: look into undo feature
+  // TODO: Look into hide feature (with eye icon)
+  // TODO: look into backgroundSync with NG-PWA module
+  // TODO: Use Angular animations to add movement to everything
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
 
 ## Development server
